@@ -1,0 +1,44 @@
+# Local env file
+.env
+env/
+
+composer.phar
+.phpunit.result.cache
+/vendor/
+
+build/*
+dist/*
+tmp/*
+
+
+# PyCharm and other IntelliJ-based IDE-s and editors' folder:
+.idea
+# vim swap files
+.*.swp
+
+# Logs created while debugging
+*.log
+
+### OSX template
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+__MACOSX

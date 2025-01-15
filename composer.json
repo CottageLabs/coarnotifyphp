@@ -1,0 +1,47 @@
+{
+	"name": "coarnotify",
+	"description": "A COAR Notification manager that can send and receive COAR Notifications.",
+	"type": "library",
+	"authors": [
+		{
+			"name": "Hrafn Malmquist",
+			"email": "hrafn@cottagelabs.com"
+		},
+		{
+			"name": "Raphaël Tournoy",
+			"email": "raphael.tournoy@ccsd.cnrs.fr"
+		},
+		{
+			"name": "Richard Jones",
+			"email": "richard@cottagelabs.com"
+		}
+	],
+	"license": "MIT",
+	"require": {
+		"php": ">=7.4",
+		"ext-json": "*",
+		"ramsey/uuid": "^4.2",
+		"ext-curl": "*",
+		"doctrine/annotations": "^1.13",
+		"guzzlehttp/guzzle": "^7.5"
+	},
+	"autoload": {
+		"psr-4": {
+			"coarnotify\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\": "tests/"
+		}
+	},
+	"keywords": ["linked-data", "repository", "open access", "publishing", "peer-review"],
+	"require-dev": {
+		"phpunit/phpunit": "^9"
+	},
+	"config": {
+		"allow-plugins": {
+			"php-http/discovery": true
+		}
+	}
+}
