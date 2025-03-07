@@ -18,7 +18,7 @@
 	],
 	"license": "MIT",
 	"require": {
-		"php": ">=7.4",
+		"php": ">=8.0",
 		"ext-json": "*",
 		"ramsey/uuid": "^4.2",
 		"ext-curl": "*",

@@ -92,8 +92,9 @@ class ActivityStream
         $prop_name = $property;
         $namespace = null;
         if (is_array($property)) {
-            $prop_name = $property[0];
-            $namespace = $property[1];
+            $prop_id = $property[0];
+            $prop_name = $property[1];
+            $namespace = $property[2];
         }
 
         $this->doc[$prop_name] = $value;
@@ -117,8 +118,9 @@ class ActivityStream
         $prop_name = $property;
         $namespace = null;
         if (is_array($property)) {
-            $prop_name = $property[0];
-            $namespace = $property[1];
+            $prop_id = $property[0];
+            $prop_name = $property[1];
+            $namespace = $property[2];
         }
 
         return isset($this->doc[$prop_name]) ? $this->doc[$prop_name] : null;
