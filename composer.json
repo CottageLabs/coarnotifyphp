@@ -1,5 +1,5 @@
 {
-	"name": "coarnotify",
+	"name": "cottagelabs/coarnotify",
 	"description": "A COAR Notification manager that can send and receive COAR Notifications.",
 	"type": "library",
 	"authors": [
@@ -37,7 +37,10 @@
 	},
 	"keywords": ["linked-data", "repository", "open access", "publishing", "peer-review"],
 	"require-dev": {
-		"phpunit/phpunit": "^9"
+		"phpunit/phpunit": "^9",
+		"slim/slim": "^4.0",
+		"slim/psr7": "^1.0",
+		"monolog/monolog": "^2.0"
 	},
 	"config": {
 		"allow-plugins": {

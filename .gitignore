@@ -9,6 +9,7 @@ composer.phar
 build/*
 dist/*
 tmp/*
+/tests/server/local.php
 
 
 # PyCharm and other IntelliJ-based IDE-s and editors' folder:
