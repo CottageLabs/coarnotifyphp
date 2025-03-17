@@ -7,12 +7,12 @@ use coarnotify\exceptions\ValidationError;
 
 class NotifyItem extends NotifyPatternPart
 {
-    public function get_media_type(): string
+    public function getMediaType(): string
     {
         return $this->getProperty(NotifyProperties::MEDIA_TYPE);
     }
 
-    public function set_media_type(string $value)
+    public function setMediaType(string $value)
     {
         $this->setProperty(NotifyProperties::MEDIA_TYPE, $value);
     }

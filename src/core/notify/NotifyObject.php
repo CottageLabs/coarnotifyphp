@@ -7,17 +7,17 @@ use coarnotify\exceptions\ValidationError;
 
 class NotifyObject extends NotifyPatternPart
 {
-    public function get_cite_as(): string
+    public function getCiteAs(): string
     {
         return $this->getProperty(NotifyProperties::CITE_AS);
     }
 
-    public function set_cite_as(string $value)
+    public function setCiteAs(string $value)
     {
         $this->setProperty(NotifyProperties::CITE_AS, $value);
     }
 
-    public function get_item()
+    public function getItem()
     {
         $i = $this->getProperty(NotifyProperties::ITEM);
         if ($i !== null) {
@@ -26,12 +26,12 @@ class NotifyObject extends NotifyPatternPart
         return null;
     }
 
-    public function set_item($value)
+    public function setItem($value)
     {
         $this->setProperty(NotifyProperties::ITEM, $value);
     }
 
-    public function get_triple(): array
+    public function getTriple(): array
     {
         $obj = $this->getProperty(Properties::OBJECT_TRIPLE);
         $rel = $this->getProperty(Properties::RELATIONSHIP_TRIPLE);
@@ -39,7 +39,7 @@ class NotifyObject extends NotifyPatternPart
         return [$obj, $rel, $subj];
     }
 
-    public function set_triple(array $value)
+    public function setTriple(array $value)
     {
         list($obj, $rel, $subj) = $value;
         $this->setProperty(Properties::OBJECT_TRIPLE, $obj);

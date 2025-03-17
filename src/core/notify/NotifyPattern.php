@@ -10,10 +10,15 @@ class NotifyPattern extends NotifyBase
 {
     const TYPE = ActivityStreamsTypes::OBJECT;
 
-    public function __construct($stream = null, $validate_stream_on_construct = true, $validate_properties = true, $validators = null, $validation_context = null, $properties_by_reference = true)
+    public function __construct($stream = null,
+                                $validate_stream_on_construct = true,
+                                $validate_properties = true,
+                                $validators = null,
+                                $validation_context = null,
+                                $properties_by_reference = true)
     {
         parent::__construct($stream, $validate_stream_on_construct, $validate_properties, $validators, $validation_context, $properties_by_reference);
-        $this->_ensureTypeContains(self::TYPE);
+        $this->_ensureTypeContains($this::TYPE);
     }
 
     private function _ensureTypeContains($types)

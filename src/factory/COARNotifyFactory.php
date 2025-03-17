@@ -11,7 +11,7 @@ use coarnotify\patterns\accept\Accept;
 //use coarnotify\patterns\AnnounceReview;
 //use coarnotify\patterns\AnnounceServiceResult;
 //use coarnotify\patterns\Reject;
-//use coarnotify\patterns\RequestEndorsement;
+use coarnotify\patterns\request_endorsement\RequestEndorsement;
 //use coarnotify\patterns\RequestReview;
 //use coarnotify\patterns\TentativelyAccept;
 //use coarnotify\patterns\TentativelyReject;
@@ -31,7 +31,7 @@ class COARNotifyFactory
 //        AnnounceReview::class,
 //        AnnounceServiceResult::class,
 //        Reject::class,
-//        RequestEndorsement::class,
+        RequestEndorsement::class,
 //        RequestReview::class,
 //        TentativelyAccept::class,
 //        TentativelyReject::class,
