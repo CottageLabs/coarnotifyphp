@@ -30,7 +30,6 @@ class NotifyBase
     protected $validateProperties;
     protected $validators;
     protected $validationContext;
-    protected $propertiesByReference;
     protected $stream;
 
     /**
@@ -41,15 +40,13 @@ class NotifyBase
      * @param bool $validate_properties Should individual properties be validated as they are set
      * @param Validator|null $validators The validator object for this class and all nested elements
      * @param string|array|null $validation_context The context in which this object is being validated
-     * @param bool $properties_by_reference Should properties be get and set by reference or by value
      */
-    public function __construct($stream = null, $validate_stream_on_construct = true, $validate_properties = true, $validators = null, $validation_context = null, $properties_by_reference = true)
+    public function __construct($stream = null, $validate_stream_on_construct = true, $validate_properties = true, $validators = null, $validation_context = null)
     {
         $this->validateStreamOnConstruct = $validate_stream_on_construct;
         $this->validateProperties = $validate_properties;
         $this->validators = $validators ?? new Validator(ValidationRules::defaultValidationRules());
         $this->validationContext = $validation_context;
-        $this->propertiesByReference = $properties_by_reference;
         $validate_now = false;
 
         if ($stream === null) {
@@ -111,25 +108,25 @@ class NotifyBase
         $this->setProperty(Properties::TYPE, $types);
     }
 
-    public function getProperty($prop_name, $by_reference = null)
+    public function getProperty($prop_name)
     {
-        if ($by_reference === null) {
-            $by_reference = $this->propertiesByReference;
-        }
-        $val = $this->stream->getProperty($prop_name);
-        return $by_reference ? $val : clone $val;
+
+        return $this->stream->getProperty($prop_name);
     }
 
-    public function setProperty($prop_name, $value, $by_reference = null)
+    public function setProperty($prop_name, $value)
     {
-        if ($by_reference === null) {
-            $by_reference = $this->propertiesByReference;
-        }
         $this->validateProperty($prop_name, $value);
-        if (!$by_reference) {
-            $value = clone $value;
-        }
         $this->stream->setProperty($prop_name, $value);
+    }
+
+    private function isPrimitive($value) {
+        return is_bool($value) || is_int($value) || is_float($value) || is_string($value) || is_null($value);
+    }
+
+    protected static function deepCopy($array)
+    {
+        return json_decode(json_encode($array), true);
     }
 
     public function validate(): bool

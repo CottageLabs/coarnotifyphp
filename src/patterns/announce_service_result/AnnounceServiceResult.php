@@ -1,22 +1,36 @@
 <?php
 
-namespace coarnotify\patterns\announce_endorsement;
+namespace coarnotify\patterns\announce_service_result;
 
 use coarnotify\core\activitystreams2\ActivityStreamsTypes;
 use coarnotify\core\activitystreams2\Properties;
 use coarnotify\exceptions\ValidationError;
 use coarnotify\core\notify\NotifyPattern;
-use coarnotify\core\notify\NotifyTypes;
 
-class AnnounceEndorsement extends NotifyPattern
+class AnnounceServiceResult extends NotifyPattern
 {
-    const TYPE = [ActivityStreamsTypes::ANNOUNCE, NotifyTypes::ENDORSEMENT_ACTION];
+    const TYPE = ActivityStreamsTypes::ANNOUNCE;
 
-    public function getContext(): ?AnnounceEndorsementContext
+    public function getObject(): ?AnnounceServiceResultObject
+    {
+        $o = $this->getProperty(Properties::OBJECT);
+        if ($o !== null) {
+            return new AnnounceServiceResultObject(
+                $o,
+                false,
+                $this->validateProperties,
+                $this->validators,
+                Properties::OBJECT
+            );
+        }
+        return null;
+    }
+
+    public function getContext(): ?AnnounceServiceResultContext
     {
         $c = $this->getProperty(Properties::CONTEXT);
         if ($c !== null) {
-            return new AnnounceEndorsementContext(
+            return new AnnounceServiceResultContext(
                 $c,
                 false,
                 $this->validateProperties,

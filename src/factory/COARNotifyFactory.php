@@ -6,17 +6,17 @@ use coarnotify\core\activitystreams2\ActivityStream;
 use coarnotify\core\activitystreams2\Properties;
 use coarnotify\core\notify\NotifyPattern;
 use coarnotify\patterns\accept\Accept;
-//use coarnotify\patterns\AnnounceEndorsement;
-//use coarnotify\patterns\AnnounceRelationship;
-//use coarnotify\patterns\AnnounceReview;
-//use coarnotify\patterns\AnnounceServiceResult;
-//use coarnotify\patterns\Reject;
+use coarnotify\patterns\announce_endorsement\AnnounceEndorsement;
+use coarnotify\patterns\announce_relationship\AnnounceRelationship;
+use coarnotify\patterns\announce_review\AnnounceReview;
+use coarnotify\patterns\announce_service_result\AnnounceServiceResult;
+use coarnotify\patterns\reject\Reject;
 use coarnotify\patterns\request_endorsement\RequestEndorsement;
-//use coarnotify\patterns\RequestReview;
-//use coarnotify\patterns\TentativelyAccept;
-//use coarnotify\patterns\TentativelyReject;
-//use coarnotify\patterns\UnprocessableNotification;
-//use coarnotify\patterns\UndoOffer;
+use coarnotify\patterns\request_review\RequestReview;
+use coarnotify\patterns\tentatively_accept\TentativelyAccept;
+use coarnotify\patterns\tentatively_reject\TentativelyReject;
+use coarnotify\patterns\undo_offer\UndoOffer;
+use coarnotify\patterns\unprocessable_notification\UnprocessableNotification;
 use coarnotify\exceptions\NotifyException;
 
 class COARNotifyFactory
@@ -26,24 +26,24 @@ class COARNotifyFactory
      */
     private static $MODELS = [
         Accept::class,
-//        AnnounceEndorsement::class,
-//        AnnounceRelationship::class,
-//        AnnounceReview::class,
-//        AnnounceServiceResult::class,
-//        Reject::class,
+        AnnounceEndorsement::class,
+        AnnounceRelationship::class,
+        AnnounceReview::class,
+        AnnounceServiceResult::class,
+        Reject::class,
         RequestEndorsement::class,
-//        RequestReview::class,
-//        TentativelyAccept::class,
-//        TentativelyReject::class,
-//        UnprocessableNotification::class,
-//        UndoOffer::class
+        RequestReview::class,
+        TentativelyAccept::class,
+        TentativelyReject::class,
+        UnprocessableNotification::class,
+        UndoOffer::class
     ];
 
     /**
      * Get the model class based on the supplied types. The returned callable is the class, not an instance.
      *
      * @param string|array $incomingTypes A single type or list of types. If a list is provided, ALL types must match a candidate
-     * @return string|null A class representing the best fit for the supplied types, or null if no match
+     * @return A class representing the best fit for the supplied types, or null if no match
      */
     public static function getByTypes($incomingTypes): ?string
     {

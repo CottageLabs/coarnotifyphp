@@ -1,22 +1,22 @@
 <?php
 
-namespace coarnotify\patterns\request_endorsement;
+namespace coarnotify\patterns\request_review;
 
 use coarnotify\core\activitystreams2\ActivityStreamsTypes;
 use coarnotify\core\activitystreams2\Properties;
-use coarnotify\exceptions\ValidationError;
 use coarnotify\core\notify\NotifyPattern;
 use coarnotify\core\notify\NotifyTypes;
+use coarnotify\exceptions\ValidationError;
 
-class RequestEndorsement extends NotifyPattern
+class RequestReview extends NotifyPattern
 {
-    const TYPE = [ActivityStreamsTypes::OFFER, NotifyTypes::ENDORSEMENT_ACTION];
+    const TYPE = [ActivityStreamsTypes::OFFER, NotifyTypes::REVIEW_ACTION];
 
-    public function getObject(): ?RequestEndorsementObject
+    public function getObject(): ?RequestReviewObject
     {
         $o = $this->getProperty(Properties::OBJECT);
         if ($o !== null) {
-            return new RequestEndorsementObject(
+            return new RequestReviewObject(
                 $o,
                 false,
                 $this->validateProperties,

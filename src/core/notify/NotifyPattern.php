@@ -14,10 +14,9 @@ class NotifyPattern extends NotifyBase
                                 $validate_stream_on_construct = true,
                                 $validate_properties = true,
                                 $validators = null,
-                                $validation_context = null,
-                                $properties_by_reference = true)
+                                $validation_context = null)
     {
-        parent::__construct($stream, $validate_stream_on_construct, $validate_properties, $validators, $validation_context, $properties_by_reference);
+        parent::__construct($stream, $validate_stream_on_construct, $validate_properties, $validators, $validation_context);
         $this->_ensureTypeContains($this::TYPE);
     }
 
@@ -49,7 +48,7 @@ class NotifyPattern extends NotifyBase
     {
         $o = $this->getProperty(Properties::ORIGIN);
         if ($o !== null) {
-            return new NotifyService($o, false, $this->getValidateProperties(), $this->getValidators(), Properties::ORIGIN, $this->propertiesByReference);
+            return new NotifyService($o, false, $this->getValidateProperties(), $this->getValidators(), Properties::ORIGIN);
         }
         return null;
     }
@@ -63,7 +62,7 @@ class NotifyPattern extends NotifyBase
     {
         $t = $this->getProperty(Properties::TARGET);
         if ($t !== null) {
-            return new NotifyService($t, false, $this->getValidateProperties(), $this->getValidators(), Properties::TARGET, $this->propertiesByReference);
+            return new NotifyService($t, false, $this->getValidateProperties(), $this->getValidators(), Properties::TARGET);
         }
         return null;
     }
@@ -77,7 +76,7 @@ class NotifyPattern extends NotifyBase
     {
         $o = $this->getProperty(Properties::OBJECT);
         if ($o !== null) {
-            return new NotifyObject($o, false, $this->getValidateProperties(), $this->getValidators(), Properties::OBJECT, $this->propertiesByReference);
+            return new NotifyObject($o, false, $this->getValidateProperties(), $this->getValidators(), Properties::OBJECT);
         }
         return null;
     }
@@ -101,7 +100,7 @@ class NotifyPattern extends NotifyBase
     {
         $a = $this->getProperty(Properties::ACTOR);
         if ($a !== null) {
-            return new NotifyActor($a, false, $this->getValidateProperties(), $this->getValidators(), Properties::ACTOR, $this->propertiesByReference);
+            return new NotifyActor($a, false, $this->getValidateProperties(), $this->getValidators(), Properties::ACTOR);
         }
         return null;
     }
@@ -115,7 +114,7 @@ class NotifyPattern extends NotifyBase
     {
         $c = $this->getProperty(Properties::CONTEXT);
         if ($c !== null) {
-            return new NotifyObject($c, false, $this->getValidateProperties(), $this->getValidators(), Properties::CONTEXT, $this->propertiesByReference);
+            return new NotifyObject($c, false, $this->getValidateProperties(), $this->getValidators(), Properties::CONTEXT);
         }
         return null;
     }

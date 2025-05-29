@@ -21,7 +21,7 @@ class NotifyObject extends NotifyPatternPart
     {
         $i = $this->getProperty(NotifyProperties::ITEM);
         if ($i !== null) {
-            return new NotifyItem($i, false, $this->getValidateProperties(), $this->getValidators(), NotifyProperties::ITEM, $this->propertiesByReference);
+            return new NotifyItem($i, false, $this->getValidateProperties(), $this->getValidators(), NotifyProperties::ITEM);
         }
         return null;
     }

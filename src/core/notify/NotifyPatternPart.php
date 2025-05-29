@@ -9,9 +9,9 @@ class NotifyPatternPart extends NotifyBase
     const DEFAULT_TYPE = null;
     const ALLOWED_TYPES = [];
 
-    public function __construct($stream = null, $validate_stream_on_construct = true, $validate_properties = true, $validators = null, $validation_context = null, $properties_by_reference = true)
+    public function __construct($stream = null, $validate_stream_on_construct = true, $validate_properties = true, $validators = null, $validation_context = null)
     {
-        parent::__construct($stream, $validate_stream_on_construct, $validate_properties, $validators, $validation_context, $properties_by_reference);
+        parent::__construct($stream, $validate_stream_on_construct, $validate_properties, $validators, $validation_context);
         if ($this::DEFAULT_TYPE !== null && $this->getType() === null) {
             $this->setType($this::DEFAULT_TYPE);
         }

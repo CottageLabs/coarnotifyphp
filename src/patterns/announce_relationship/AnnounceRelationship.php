@@ -1,6 +1,6 @@
 <?php
 
-namespace coarnotify\patterns\announce_endorsement;
+namespace coarnotify\patterns\announce_relationship;
 
 use coarnotify\core\activitystreams2\ActivityStreamsTypes;
 use coarnotify\core\activitystreams2\Properties;
@@ -8,20 +8,20 @@ use coarnotify\exceptions\ValidationError;
 use coarnotify\core\notify\NotifyPattern;
 use coarnotify\core\notify\NotifyTypes;
 
-class AnnounceEndorsement extends NotifyPattern
+class AnnounceRelationship extends NotifyPattern
 {
-    const TYPE = [ActivityStreamsTypes::ANNOUNCE, NotifyTypes::ENDORSEMENT_ACTION];
+    const TYPE = [ActivityStreamsTypes::ANNOUNCE, NotifyTypes::RELATIONSHIP_ACTION];
 
-    public function getContext(): ?AnnounceEndorsementContext
+    public function getObject(): ?AnnounceRelationshipObject
     {
-        $c = $this->getProperty(Properties::CONTEXT);
-        if ($c !== null) {
-            return new AnnounceEndorsementContext(
-                $c,
+        $o = $this->getProperty(Properties::OBJECT);
+        if ($o !== null) {
+            return new AnnounceRelationshipObject(
+                $o,
                 false,
                 $this->validateProperties,
                 $this->validators,
-                Properties::CONTEXT
+                Properties::OBJECT
             );
         }
         return null;

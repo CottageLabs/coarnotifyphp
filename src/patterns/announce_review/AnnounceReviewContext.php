@@ -1,18 +1,18 @@
 <?php
 
-namespace coarnotify\patterns\announce_endorsement;
+namespace coarnotify\patterns\announce_review;
 
 use coarnotify\core\activitystreams2\Properties;
 use coarnotify\core\notify\NotifyObject;
 use coarnotify\core\notify\NotifyProperties;
 
-class AnnounceEndorsementContext extends NotifyObject
+class AnnounceReviewContext extends NotifyObject
 {
-    public function getItem(): ?AnnounceEndorsementItem
+    public function getItem(): ?AnnounceReviewItem
     {
         $i = $this->getProperty(NotifyProperties::ITEM);
         if ($i !== null) {
-            return new AnnounceEndorsementItem(
+            return new AnnounceReviewItem(
                 $i,
                 false,
                 $this->validateProperties,

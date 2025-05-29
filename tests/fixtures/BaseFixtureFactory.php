@@ -4,7 +4,7 @@ namespace Tests\fixtures;
 
 abstract class BaseFixtureFactory
 {
-    public static function source($copy = true)
+    public static function source(bool $copy = true)
     {
         throw new \Exception("NotImplementedError");
     }

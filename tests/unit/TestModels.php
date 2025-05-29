@@ -11,9 +11,31 @@ use coarnotify\core\notify\NotifyActor;
 use coarnotify\core\notify\NotifyItem;
 use coarnotify\patterns\accept\Accept;
 use coarnotify\patterns\announce_endorsement\AnnounceEndorsement;
-use Tests\fixtures\NotifyFixtureFactory;
-use Tests\fixtures\AcceptFixtureFactory;
-use Tests\fixtures\AnnounceEndorsementFixtureFactory;
+use coarnotify\patterns\announce_relationship\AnnounceRelationship;
+use coarnotify\patterns\announce_review\AnnounceReview;
+use coarnotify\patterns\announce_service_result\AnnounceServiceResult;
+use coarnotify\patterns\reject\Reject;
+use coarnotify\patterns\request_endorsement\RequestEndorsement;
+use coarnotify\patterns\request_review\RequestReview;
+use coarnotify\patterns\tentatively_accept\TentativelyAccept;
+use coarnotify\patterns\tentatively_reject\TentativelyReject;
+use coarnotify\patterns\undo_offer\UndoOffer;
+use coarnotify\patterns\unprocessable_notification\UnprocessableNotification;
+use Tests\fixtures\{
+    AcceptFixtureFactory,
+    AnnounceEndorsementFixtureFactory,
+    AnnounceRelationshipFixtureFactory,
+    AnnounceReviewFixtureFactory,
+    AnnounceServiceResultFixtureFactory,
+    NotifyFixtureFactory,
+    RejectFixtureFactory,
+    RequestEndorsementFixtureFactory,
+    RequestReviewFixtureFactory,
+    TentativelyAcceptFixtureFactory,
+    TentativelyRejectFixtureFactory,
+    UnprocessableNotificationFixtureFactory,
+    UndoOfferFixtureFactory
+};
 
 class TestModels extends TestCase
 {
@@ -232,5 +254,153 @@ class TestModels extends TestCase
 
         $proptest = $this->getTestableProperties($compare);
         $this->applyPropertyTest($proptest, $ae, new AnnounceEndorsementFixtureFactory());
+    }
+
+    public function testAnnounceRelationship()
+    {
+        $ae = new AnnounceRelationship();
+
+        $source = AnnounceRelationshipFixtureFactory::source();
+        $compare = $source;
+        $ae = new AnnounceRelationship($source);
+        $this->assertTrue($ae->validate());
+        $this->assertEquals($compare, $ae->toJsonLd());
+
+        $proptest = $this->getTestableProperties($compare);
+        $this->applyPropertyTest($proptest, $ae, new AnnounceRelationshipFixtureFactory());
+    }
+
+    public function testAnnounceReview()
+    {
+        $ar = new AnnounceReview();
+
+        $source = AnnounceReviewFixtureFactory::source();
+        $compare = $source;
+        $ar = new AnnounceReview($source);
+        $this->assertTrue($ar->validate());
+        $this->assertEquals($compare, $ar->toJsonLd());
+
+        $proptest = $this->getTestableProperties($compare);
+        $this->applyPropertyTest($proptest, $ar, new AnnounceReviewFixtureFactory());
+    }
+
+    public function testAnnounceServiceResult()
+    {
+        $asr = new AnnounceServiceResult();
+
+        $source = AnnounceServiceResultFixtureFactory::source();
+        $compare = $source;
+        $compare['type'] = $compare['type'][0];
+        $asr = new AnnounceServiceResult($source);
+
+        $this->assertTrue($asr->validate());
+        $this->assertEquals($compare, $asr->toJsonLd());
+
+        $proptest = $this->getTestableProperties($compare);
+        $this->applyPropertyTest($proptest, $asr, new AnnounceServiceResultFixtureFactory());
+    }
+
+    public function testReject()
+    {
+        $rej = new Reject();
+
+        $source = RejectFixtureFactory::source();
+        $compare = $source;
+        $rej = new Reject($source);
+        $this->assertTrue($rej->validate());
+        $this->assertEquals($compare, $rej->toJsonLd());
+
+        $proptest = $this->getTestableProperties($compare);
+        $this->applyPropertyTest($proptest, $rej, new RejectFixtureFactory());
+    }
+
+    public function testRequestEndorsement()
+    {
+        $re = new RequestEndorsement();
+
+        $source = RequestEndorsementFixtureFactory::source();
+        $compare = $source;
+        $re = new RequestEndorsement($source);
+
+        $this->assertTrue($re->validate());
+        $this->assertEquals($compare, $re->toJsonLd());
+
+        $proptest = $this->getTestableProperties($compare);
+        $this->applyPropertyTest($proptest, $re, new RequestEndorsementFixtureFactory());
+    }
+
+    public function testRequestReview()
+    {
+        $ri = new RequestReview();
+
+        $source = RequestReviewFixtureFactory::source();
+        $compare = $source;
+        $ri = new RequestReview($source);
+
+        $this->assertTrue($ri->validate());
+        $this->assertEquals($compare, $ri->toJsonLd());
+
+        $proptest = $this->getTestableProperties($compare);
+        $this->applyPropertyTest($proptest, $ri, new RequestReviewFixtureFactory());
+    }
+
+    public function testTentativelyAccept()
+    {
+        $ta = new TentativelyAccept();
+
+        $source = TentativelyAcceptFixtureFactory::source();
+        $compare = $source;
+        $ta = new TentativelyAccept($source);
+
+        $this->assertTrue($ta->validate());
+        $this->assertEquals($compare, $ta->toJsonLd());
+
+        $proptest = $this->getTestableProperties($compare);
+        $this->applyPropertyTest($proptest, $ta, new TentativelyAcceptFixtureFactory());
+    }
+
+    public function testTentativelyReject()
+    {
+        $ta = new TentativelyReject();
+
+        $source = TentativelyRejectFixtureFactory::source();
+        $compare = $source;
+        $ta = new TentativelyReject($source);
+
+        $this->assertTrue($ta->validate());
+        $this->assertEquals($compare, $ta->toJsonLd());
+
+        $proptest = $this->getTestableProperties($compare);
+        $this->applyPropertyTest($proptest, $ta, new TentativelyRejectFixtureFactory());
+    }
+
+    public function testUnprocessableNotification()
+    {
+        $ta = new UnprocessableNotification();
+
+        $source = UnprocessableNotificationFixtureFactory::source();
+        $compare = $source;
+        $ta = new UnprocessableNotification($source);
+
+        $this->assertTrue($ta->validate());
+        $this->assertEquals($compare, $ta->toJsonLd());
+
+        $proptest = $this->getTestableProperties($compare);
+        $this->applyPropertyTest($proptest, $ta, new UnprocessableNotificationFixtureFactory());
+    }
+
+    public function testUndoOffer()
+    {
+        $ta = new UndoOffer();
+
+        $source = UndoOfferFixtureFactory::source();
+        $compare = $source;
+        $ta = new UndoOffer($source);
+
+        $this->assertTrue($ta->validate());
+        $this->assertEquals($compare, $ta->toJsonLd());
+
+        $proptest = $this->getTestableProperties($compare);
+        $this->applyPropertyTest($proptest, $ta, new UndoOfferFixtureFactory());
     }
 }

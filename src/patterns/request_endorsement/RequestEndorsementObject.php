@@ -18,8 +18,7 @@ class RequestEndorsementObject extends NotifyObject
                 false,
                 $this->validateProperties,
                 $this->validators,
-                NotifyProperties::ITEM,
-                $this->propertiesByReference
+                NotifyProperties::ITEM
             );
         }
         return null;
