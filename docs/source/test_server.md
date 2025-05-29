@@ -13,12 +13,13 @@ Configuring the Test Server
 
 The test server's default settings are in ``tests/server/settings.php``.
 
-You will need to modify this config file to suit you needs.  The main things to set are:
+Create a local config file called ``local.php`` containing your local settings.  The test server will automatically
+load this file if it exists.  The local config file should be in the same directory as the ``settings.php`` file.
 
-* STORE_DIR: the directory to store the notifications.  You MUST supply your own path
-* PORT: the port to run the server on.  Default is 5005
+The main things to set are:
 
-Create a local config file called something like ``local.cfg`` containing those properties
+* `store_dir`: the directory to store the notifications.  You MUST supply your own path
+* `port`: the port to run the server on.  Default is 5005
 
 .. code-block:: python
 
