@@ -2,6 +2,7 @@
 	"name": "cottagelabs/coarnotify",
 	"description": "A COAR Notification manager that can send and receive COAR Notifications.",
 	"type": "library",
+	"version": "1.0.1.1",
 	"authors": [
 		{
 			"name": "Hrafn Malmquist",

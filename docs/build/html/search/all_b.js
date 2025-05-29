@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['relationship_5ftriple_0',['RELATIONSHIP_TRIPLE',['../classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html#a5c398db6fd78b4ae08d72d5fc63dfa2e',1,'coarnotify::core::activitystreams2::Properties']]],
-  ['release_1',['Making a release',['../md_docs_2source_2dev.html#autotoc_md3',1,'']]]
+  ['making_20a_20release_0',['Making a release',['../md_docs_2source_2dev.html#autotoc_md6',1,'']]],
+  ['manager_1',['Install via package manager',['../md_docs_2source_2install.html#autotoc_md11',1,'']]],
+  ['media_5ftype_2',['MEDIA_TYPE',['../classcoarnotify_1_1core_1_1notify_1_1NotifyProperties.html#a4b71dcdafcfe901bd6a234f3928abc93',1,'coarnotify::core::notify::NotifyProperties']]]
 ];

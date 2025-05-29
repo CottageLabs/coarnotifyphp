@@ -105,64 +105,46 @@ $(function(){initNavTree('md_docs_2source_2dev.html',''); initResizable(true); }
   <div class="headertitle"><div class="title">Information for Developers</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md0"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
 Compiling the documentation</h1>
 <p>To build the documentation, run the following command: </p><pre class="fragment">doxygen doxygen.cfg
-</pre><h1><a class="anchor" id="autotoc_md1"></a>
+</pre><h1><a class="anchor" id="autotoc_md2"></a>
 Adding new patterns</h1>
 <ol type="1">
-<li>Create a new module for the model in <code>coarnotify.models</code> (for example <code>coarnotify.models.announce_ingest</code>)</li>
-<li>Create the new model class in the new module (for example, <code>AnnounceIngest</code>) and implement as needed</li>
-<li>Review the validation requirements of the new model and ensure validation is updated (update the model spreadsheet)</li>
-<li>Add the new model to <code>coarnotify.models.__init__.py</code> so it can be imported from <code>coarnotify.models</code></li>
-<li>Add the new model to the factory list of models in <code>coarnotify.factory.COARNotifyFactory.MODELS</code></li>
-<li>Create a fixture and fixture factory in <code>coarnotify.test.fixtures</code> (for example, <code>coarnotify.test.fixtures.announce_ingest</code>)</li>
-<li>Import the new fixture in <code>coarnotify.test.fixtures.__init__.py</code></li>
-<li>Add a unit test for the new model in <code>coarnotify.test.unit.test_models</code>, and confirm it works</li>
-<li>Add a unit test for the model factory in <code>coarnotify.test.unit.test_factory</code>, and confirm it works</li>
-<li>Add an integration test for the new model in <code>coarnotify.test.integration.test_client</code>, and confirm it works</li>
-<li>Add validation tests for the new model in <code>coarnotify.test.unit.test_validate</code>, and confirm they work</li>
+<li>Create a new module for the model in <code>src/patterns</code> (for example <code>src/patterns/announce_endorsement</code>)</li>
+<li>Create the new model files/classes in the new module (for example, <code>AnnounceIngest.php</code>) and implement as needed</li>
+<li>Review the validation requirements of the new model and ensure validation is updated</li>
+<li>Add the new model to the factory list of models in <code>src/factory/COARNotifyFactory.MODELS</code></li>
+<li>Create a fixture and fixture factory in <code>src/tests/fixtures</code> (for example, <code>src/test/fixtures/AnnounceIngest.php</code>)</li>
+<li>Add a unit test for the new model in <code>src/tests/unit/TestModels.php</code>, and confirm it works</li>
+<li>Add a unit test for the model factory in <code>src/tests/unit/TestFactory.php</code>, and confirm it works</li>
+<li>Add an integration test for the new model in <code>src/tests/integration/TestClient.php</code>, and confirm it works</li>
+<li>Add validation tests for the new model in <code>src/tests/unit/TestValidate.php</code>, and confirm they work</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Testing</h1>
-<p>Unit ^^^^</p>
-<p>Unit tests are located in <code>coarnotify.test.unit</code> and can be run with the following command (or your preferred test runner):</p>
-<p>.. code-block:: console </p><pre class="fragment">pytest coarnotify/test/unit
-</pre><p>Integration ^^^^^^^^^^^</p>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Unit</h2>
+<p>Unit tests are located in <code>src/tests/unit</code> and can be run with the following command (or your preferred test runner):</p>
+<div class="fragment"><div class="line">phpunit src/tests/unit</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
+Integration</h2>
 <p>Integration tests require a notify inbox to be available</p>
 <p>This can be done by starting the test inbox server. To do this you will first need to configure your local settings for the server.</p>
-<p>Default configuration is in <code>coarnotify/test/server/settings.py</code> and can be overridden by providing your own settings file as an environment variable <code>COARNOTIFY_SETTINGS</code>.</p>
-<p>The main things you may wish to override are:</p>
-<ul>
-<li>STORE_DIR: the directory to store the notifications. You MUST supply your own path</li>
-<li>PORT: the port to run the server on. Default is 5005</li>
-</ul>
-<p>Create a local config file called something like <code>local.cfg</code> containing those properties</p>
-<p>.. code-block:: python </p><pre class="fragment">STORE_DIR = '/path/to/store/notifications'
-PORT = 5005
-</pre><p>Then start the server with the following command:</p>
-<p>.. code-block:: console </p><pre class="fragment">COARNOTIFY_SETTINGS=local.cfg; python coarnotify/test/server/inbox.py
-</pre><p>Integration tests are located in <code>coarnotify/test/integration</code> and can be run with the following command (or your preferred test runner):</p>
-<p>.. code-block:: console </p><pre class="fragment">pytest coarnotify/test/integration
-</pre><h1><a class="anchor" id="autotoc_md3"></a>
+<p>Default configuration is in <code>src/tests/server/settings.php</code> and can be overridden by providing your own settings in a file called <code>local.php</code> in the same directory.</p>
+<p>Then start the server with the following command:</p>
+<div class="fragment"><div class="line">php -S localhost:8080 -t tests/server</div>
+</div><!-- fragment --><p>Integration tests are located in <code>src/tests/integration</code> and can be run with the following command (or your preferred test runner):</p>
+<div class="fragment"><div class="line">phpunit src/tests/integration</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Making a release</h1>
 <ol type="1">
-<li>Update the version number in <code>setup.py</code> and <code>coarnotify/__init__.py</code></li>
+<li>Update the version number in <code>composer.json</code></li>
 <li>Make the release in github, with the version number as the tag</li>
-<li>Build the package locally:</li>
 </ol>
-<p>.. code-block:: console </p><pre class="fragment">python -m pip install build twine
-python -m build
-twine check dist/*
-</pre><ol type="1">
-<li>Test upload the package to TestPypi (you will need an account on <a href="https://test.pypi.org">https://test.pypi.org</a> and to set up an API token):</li>
-</ol>
-<p>.. code-block:: console </p><pre class="fragment">twine upload -r testpypi dist/*
-</pre><ol type="1">
-<li>Do the release to the real Pypi:</li>
-</ol>
-<p>.. code-block:: console </p><pre class="fragment">twine upload dist/*
-</pre> </div></div><!-- contents -->
+<p>TODO </p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

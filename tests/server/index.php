@@ -27,8 +27,6 @@ function patchSettings($app) {
 
 $app = AppFactory::create();
 
-// $app->setBasePath('/path/to/your/app');
-
 $app->post('/inbox', function (Request $request, Response $response) use ($app) {
     $notification = $request->getParsedBody();
     $server = new COARNotifyServer(new COARNotifyServiceTestImpl());
