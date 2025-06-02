@@ -5,12 +5,10 @@ var hierarchy =
     [ "coarnotify\\client\\COARNotifyClient", "classcoarnotify_1_1client_1_1COARNotifyClient.html", null ],
     [ "coarnotify\\factory\\COARNotifyFactory", "classcoarnotify_1_1factory_1_1COARNotifyFactory.html", null ],
     [ "coarnotify\\server\\COARNotifyReceipt", "classcoarnotify_1_1server_1_1COARNotifyReceipt.html", null ],
-    [ "coarnotify\\server\\COARNotifyServer", "classcoarnotify_1_1server_1_1COARNotifyServer.html", null ],
     [ "coarnotify\\server\\COARNotifyServiceBinding", "interfacecoarnotify_1_1server_1_1COARNotifyServiceBinding.html", null ],
     [ "Exception", null, [
       [ "coarnotify\\exceptions\\COARNotifyServerError", "classcoarnotify_1_1exceptions_1_1COARNotifyServerError.html", null ],
       [ "coarnotify\\exceptions\\NotifyException", "classcoarnotify_1_1exceptions_1_1NotifyException.html", [
-        [ "coarnotify\\exceptions\\ValidationError", "classcoarnotify_1_1exceptions_1_1ValidationError.html", null ],
         [ "coarnotify\\exceptions\\ValueError", "classcoarnotify_1_1exceptions_1_1ValueError.html", null ]
       ] ]
     ] ],

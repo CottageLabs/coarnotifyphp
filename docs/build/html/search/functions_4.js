@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['haserrors_0',['hasErrors',['../classcoarnotify_1_1exceptions_1_1ValidationError.html#ad9201205aeb5530263fac50219cb8894',1,'coarnotify::exceptions::ValidationError']]]
+  ['notificationreceived_0',['notificationReceived',['../interfacecoarnotify_1_1server_1_1COARNotifyServiceBinding.html#a45f84b94318fc62e9ef39459e331d0f5',1,'coarnotify::server::COARNotifyServiceBinding']]]
 ];

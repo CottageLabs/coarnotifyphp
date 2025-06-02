@@ -6,9 +6,10 @@ var searchData=
   ['service_20binding_20class_3',['Custom Service Binding Class',['../md_docs_2source_2server.html#autotoc_md23',1,'']]],
   ['service_20binding_20to_20the_20server_4',['Passing the Service Binding to the Server',['../md_docs_2source_2server.html#autotoc_md24',1,'']]],
   ['setinboxurl_5',['setInboxUrl',['../classcoarnotify_1_1client_1_1COARNotifyClient.html#a207ed897b32c3280502bd70676cd386b',1,'coarnotify::client::COARNotifyClient']]],
-  ['setproperty_6',['setProperty',['../classcoarnotify_1_1core_1_1activitystreams2_1_1ActivityStream.html#a72975053be80046ad85497a9adb1b15f',1,'coarnotify::core::activitystreams2::ActivityStream']]],
-  ['simple_20field_7',['Adding a Simple Field',['../md_docs_2source_2pattern.html#autotoc_md15',1,'']]],
-  ['source_8',['Installation from Source',['../md_docs_2source_2install.html#autotoc_md12',1,'']]],
-  ['subject_5ftriple_9',['SUBJECT_TRIPLE',['../classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html#a6a20a35cc531cc794d856d72cf812c52',1,'coarnotify::core::activitystreams2::Properties']]],
-  ['summary_10',['SUMMARY',['../classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html#acdffa7ffb6cccda551a5179f23216921',1,'coarnotify::core::activitystreams2::Properties']]]
+  ['setname_6',['setName',['../classcoarnotify_1_1core_1_1notify_1_1NotifyActor.html#a7315e1437d3792cffc7f65d81ce63ee3',1,'coarnotify::core::notify::NotifyActor']]],
+  ['setproperty_7',['setProperty',['../classcoarnotify_1_1core_1_1activitystreams2_1_1ActivityStream.html#a72975053be80046ad85497a9adb1b15f',1,'coarnotify\core\activitystreams2\ActivityStream\setProperty()'],['../classcoarnotify_1_1core_1_1notify_1_1NotifyBase.html#a911a45ce3516301a31d3540422ebf444',1,'coarnotify\core\notify\NotifyBase\setProperty()']]],
+  ['simple_20field_8',['Adding a Simple Field',['../md_docs_2source_2pattern.html#autotoc_md15',1,'']]],
+  ['source_9',['Installation from Source',['../md_docs_2source_2install.html#autotoc_md12',1,'']]],
+  ['subject_5ftriple_10',['SUBJECT_TRIPLE',['../classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html#a6a20a35cc531cc794d856d72cf812c52',1,'coarnotify::core::activitystreams2::Properties']]],
+  ['summary_11',['SUMMARY',['../classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html#acdffa7ffb6cccda551a5179f23216921',1,'coarnotify::core::activitystreams2::Properties']]]
 ];

@@ -137,12 +137,12 @@ Public Member Functions</h2></td></tr>
 <p>For example, consider the following rules:</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line"> <a class="code hl_class" href="classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html">Properties</a>.<a class="code hl_variable" href="classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html#a310e4a60f16e566f7d3803209de3f0c4">TYPE</a>: {</div>
-<div class="line">     <span class="stringliteral">&quot;default&quot;</span>: validate.typeChecker,</div>
+<div class="line">     <span class="stringliteral">&quot;default&quot;</span>: <a class="code hl_function" href="classcoarnotify_1_1validate_1_1Validators.html#a4e1cc68e2ad4abd1ea6335a64c784a0f">Validators::typeChecker</a>,</div>
 <div class="line">     <span class="stringliteral">&quot;context&quot;</span>: {</div>
 <div class="line">         <a class="code hl_class" href="classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html">Properties</a>.<a class="code hl_variable" href="classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html#a1e71632c1bc28b6f21d2dce3900d5bbd">ACTOR</a>: {</div>
-<div class="line">             <span class="stringliteral">&quot;default&quot;</span>: validate.one_of([</div>
-<div class="line">                 ActivityStreamsTypes.SERVICE,</div>
-<div class="line">                 ActivityStreamsTypes.APPLICATION</div>
+<div class="line">             <span class="stringliteral">&quot;default&quot;</span>: <a class="code hl_function" href="classcoarnotify_1_1validate_1_1Validators.html#a1aec17e554aed6fcc2efdab92d985d8f">Validators::oneOf</a>([</div>
+<div class="line">                 ActivityStreamsTypes::SERVICE,</div>
+<div class="line">                 ActivityStreamsTypes::APPLICATION</div>
 <div class="line">             ])</div>
 <div class="line">         }</div>
 <div class="line">     }</div>
@@ -151,7 +151,9 @@ Public Member Functions</h2></td></tr>
 <div class="ttc" id="aclasscoarnotify_1_1core_1_1activitystreams2_1_1Properties_html"><div class="ttname"><a href="classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html">coarnotify\core\activitystreams2\Properties</a></div><div class="ttdef"><b>Definition</b> Properties.php:15</div></div>
 <div class="ttc" id="aclasscoarnotify_1_1core_1_1activitystreams2_1_1Properties_html_a1e71632c1bc28b6f21d2dce3900d5bbd"><div class="ttname"><a href="classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html#a1e71632c1bc28b6f21d2dce3900d5bbd">coarnotify\core\activitystreams2\Properties\ACTOR</a></div><div class="ttdeci">const ACTOR</div><div class="ttdef"><b>Definition</b> Properties.php:32</div></div>
 <div class="ttc" id="aclasscoarnotify_1_1core_1_1activitystreams2_1_1Properties_html_a310e4a60f16e566f7d3803209de3f0c4"><div class="ttname"><a href="classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html#a310e4a60f16e566f7d3803209de3f0c4">coarnotify\core\activitystreams2\Properties\TYPE</a></div><div class="ttdeci">const TYPE</div><div class="ttdef"><b>Definition</b> Properties.php:20</div></div>
-</div><!-- fragment --><p>This tells us that the <code>TYPE</code> property should be validated with <code>validate.typeChecker</code> by default. But if we are looking at that <code>TYPE</code> property inside an <code>ACTOR</code> object, then instead we should use <code>validate.one_of</code>.</p>
+<div class="ttc" id="aclasscoarnotify_1_1validate_1_1Validators_html_a1aec17e554aed6fcc2efdab92d985d8f"><div class="ttname"><a href="classcoarnotify_1_1validate_1_1Validators.html#a1aec17e554aed6fcc2efdab92d985d8f">coarnotify\validate\Validators\oneOf</a></div><div class="ttdeci">static oneOf(array $values)</div><div class="ttdef"><b>Definition</b> Validators.php:143</div></div>
+<div class="ttc" id="aclasscoarnotify_1_1validate_1_1Validators_html_a4e1cc68e2ad4abd1ea6335a64c784a0f"><div class="ttname"><a href="classcoarnotify_1_1validate_1_1Validators.html#a4e1cc68e2ad4abd1ea6335a64c784a0f">coarnotify\validate\Validators\typeChecker</a></div><div class="ttdeci">static typeChecker($obj, $value)</div><div class="ttdef"><b>Definition</b> Validators.php:214</div></div>
+</div><!-- fragment --><p>This tells us that the <code>TYPE</code> property should be validated with <code>typeChecker</code> by default. But if we are looking at that <code>TYPE</code> property inside an <code>ACTOR</code> object, then instead we should use <code>validate.one_of</code>.</p>
 <p>When the <code>get</code> method is called, the <code>context</code> parameter can be used to specify the context in which the property is being validated. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a726ad32c815363a808c99a802cb5b950" name="a726ad32c815363a808c99a802cb5b950"></a>
@@ -260,7 +262,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>coarnotify</b></li><li class="navelem"><b>validate</b></li><li class="navelem"><a class="el" href="classcoarnotify_1_1validate_1_1Validator.html">Validator</a></li>
+    <li class="navelem"><a class="el" href="namespacecoarnotify.html">coarnotify</a></li><li class="navelem"><b>validate</b></li><li class="navelem"><a class="el" href="classcoarnotify_1_1validate_1_1Validator.html">Validator</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

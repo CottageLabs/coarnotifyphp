@@ -125,7 +125,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aabd8c913b7665c64d8a50ad9806292b5" id="r_aabd8c913b7665c64d8a50ad9806292b5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabd8c913b7665c64d8a50ad9806292b5">get</a> (string $url, ?array $headers=[],... $args)</td></tr>
 <tr class="separator:aabd8c913b7665c64d8a50ad9806292b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of the HTTP layer using the CURL library. This is the default implementation used when no other implementation is supplied </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aabd8c913b7665c64d8a50ad9806292b5" name="aabd8c913b7665c64d8a50ad9806292b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aabd8c913b7665c64d8a50ad9806292b5">&#9670;&#160;</a></span>get()</h2>
 
@@ -149,16 +151,23 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Make an HTTP GET request to the supplied URL with the given headers.</p>
+<p>Make an HTTP GET request to the supplied URL with the given headers</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramtype">string</td><td class="paramname">$url</td><td>The request URL </td></tr>
-    <tr><td class="paramtype">array&#160;|&#160;null</td><td class="paramname">$headers</td><td>HTTP headers as an associative array to include in the request </td></tr>
-    <tr><td class="paramtype"></td><td class="paramname">mixed</td><td>...$args Argument list to pass on to the implementation </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$url</td><td></td></tr>
+    <tr><td class="paramtype">array&#160;|&#160;null</td><td class="paramname">$headers</td><td></td></tr>
+    <tr><td class="paramtype"></td><td class="paramname">...$args</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>HttpResponse </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>\coarnotify\http\CurlHttpResponse </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Exception </p>
 
 <p>Implements <a class="el" href="interfacecoarnotify_1_1http_1_1HttpLayer.html#aca7771f3f46633081aedb0f32b8fb81c">coarnotify\http\HttpLayer</a>.</p>
 
@@ -192,17 +201,24 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Make an HTTP POST request to the supplied URL with the given body data, and headers.</p>
+<p>Make an HTTP POST request to the supplied URL with the given body data, and headers</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramtype">string</td><td class="paramname">$url</td><td>The request URL </td></tr>
-    <tr><td class="paramtype">string</td><td class="paramname">$data</td><td>The body data </td></tr>
-    <tr><td class="paramtype">array&#160;|&#160;null</td><td class="paramname">$headers</td><td>HTTP headers as an associative array to include in the request </td></tr>
-    <tr><td class="paramtype"></td><td class="paramname">mixed</td><td>...$args Argument list to pass on to the implementation </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$url</td><td></td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$data</td><td></td></tr>
+    <tr><td class="paramtype">array&#160;|&#160;null</td><td class="paramname">$headers</td><td></td></tr>
+    <tr><td class="paramtype"></td><td class="paramname">...$args</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>HttpResponse </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>\coarnotify\http\CurlHttpResponse </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Exception </p>
 
 <p>Implements <a class="el" href="interfacecoarnotify_1_1http_1_1HttpLayer.html#a9fd9b991569f85513ce7ea6a7424641a">coarnotify\http\HttpLayer</a>.</p>
 
@@ -216,7 +232,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>coarnotify</b></li><li class="navelem"><b>http</b></li><li class="navelem"><a class="el" href="classcoarnotify_1_1http_1_1CurlHttpLayer.html">CurlHttpLayer</a></li>
+    <li class="navelem"><a class="el" href="namespacecoarnotify.html">coarnotify</a></li><li class="navelem"><b>http</b></li><li class="navelem"><a class="el" href="classcoarnotify_1_1http_1_1CurlHttpLayer.html">CurlHttpLayer</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

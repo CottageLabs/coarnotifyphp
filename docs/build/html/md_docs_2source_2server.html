@@ -140,15 +140,14 @@ Custom Service Binding Class</h2>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">new</span> COARNotifyReceipt(COARNotifyReceipt::CREATED, $location);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aclasscoarnotify_1_1core_1_1notify_1_1NotifyPattern_html"><div class="ttname"><a href="classcoarnotify_1_1core_1_1notify_1_1NotifyPattern.html">coarnotify\core\notify\NotifyPattern</a></div><div class="ttdef"><b>Definition</b> NotifyPattern.php:10</div></div>
-<div class="ttc" id="aclasscoarnotify_1_1server_1_1COARNotifyReceipt_html"><div class="ttname"><a href="classcoarnotify_1_1server_1_1COARNotifyReceipt.html">coarnotify\server\COARNotifyReceipt</a></div><div class="ttdef"><b>Definition</b> COARNotifyReceipt.php:6</div></div>
+<div class="ttc" id="aclasscoarnotify_1_1core_1_1notify_1_1NotifyPattern_html"><div class="ttname"><a href="classcoarnotify_1_1core_1_1notify_1_1NotifyPattern.html">coarnotify\core\notify\NotifyPattern</a></div><div class="ttdef"><b>Definition</b> NotifyPattern.php:13</div></div>
+<div class="ttc" id="aclasscoarnotify_1_1server_1_1COARNotifyReceipt_html"><div class="ttname"><a href="classcoarnotify_1_1server_1_1COARNotifyReceipt.html">coarnotify\server\COARNotifyReceipt</a></div><div class="ttdef"><b>Definition</b> COARNotifyReceipt.php:12</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md24"></a>
 Passing the Service Binding to the Server</h2>
 <p>You can now pass the custom service binding class to the COAR Notify server class on construction.</p>
-<div class="fragment"><div class="line">use <a class="code hl_class" href="classcoarnotify_1_1server_1_1COARNotifyServer.html">coarnotify\server\COARNotifyServer</a>;</div>
+<div class="fragment"><div class="line">use coarnotify\server\COARNotifyServer;</div>
 <div class="line"> </div>
 <div class="line">$server = <span class="keyword">new</span> COARNotifyServer(<span class="keyword">new</span> COARNotifyServiceImpl());</div>
-<div class="ttc" id="aclasscoarnotify_1_1server_1_1COARNotifyServer_html"><div class="ttname"><a href="classcoarnotify_1_1server_1_1COARNotifyServer.html">coarnotify\server\COARNotifyServer</a></div><div class="ttdef"><b>Definition</b> COARNotifyServer.php:10</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md25"></a>
 Extending the <code>inbox</code> Route</h2>
 <p>Finally, extend the <code>inbox</code> route to use the <code>COARNotifyServer::receive</code> method to process the notification and handle the response to the user.</p>

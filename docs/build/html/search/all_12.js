@@ -15,6 +15,6 @@ var searchData=
   ['tojsonld_12',['toJsonLd',['../classcoarnotify_1_1core_1_1activitystreams2_1_1ActivityStream.html#a770622406f2866f1cbeb4c946e7b63f7',1,'coarnotify::core::activitystreams2::ActivityStream']]],
   ['tt_20inbox_20tt_20route_13',['Extending the &lt;tt&gt;inbox&lt;/tt&gt; Route',['../md_docs_2source_2server.html#autotoc_md25',1,'']]],
   ['tt_20route_14',['Extending the &lt;tt&gt;inbox&lt;/tt&gt; Route',['../md_docs_2source_2server.html#autotoc_md25',1,'']]],
-  ['type_15',['TYPE',['../classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html#a310e4a60f16e566f7d3803209de3f0c4',1,'coarnotify\core\activitystreams2\Properties\TYPE'],['../classcoarnotify_1_1patterns_1_1accept_1_1Accept.html#ac45a4e030ca39600327bec54c1fdf9bd',1,'coarnotify\patterns\accept\Accept\TYPE']]],
+  ['type_15',['TYPE',['../classcoarnotify_1_1core_1_1activitystreams2_1_1Properties.html#a310e4a60f16e566f7d3803209de3f0c4',1,'coarnotify\core\activitystreams2\Properties\TYPE'],['../classcoarnotify_1_1patterns_1_1accept_1_1Accept.html#ac45a4e030ca39600327bec54c1fdf9bd',1,'coarnotify\patterns\accept\Accept\TYPE'],['../classcoarnotify_1_1patterns_1_1announce__service__result_1_1AnnounceServiceResult.html#add3e4347c9991cebfe2f966abd6e4319',1,'coarnotify\patterns\announce_service_result\AnnounceServiceResult\TYPE']]],
   ['typechecker_16',['typeChecker',['../classcoarnotify_1_1validate_1_1Validators.html#a4e1cc68e2ad4abd1ea6335a64c784a0f',1,'coarnotify::validate::Validators']]]
 ];
