@@ -10,7 +10,7 @@ use coarnotify\core\notify\NotifyTypes;
 
 /**
  * Pattern to represent the Announce Review notification
- * https://coar-notify.net/specification/1.0.0/announce-review/
+ * https://coar-notify.net/specification/1.0.1/announce-review/
  */
 class AnnounceReview extends NotifyPattern
 {

@@ -9,7 +9,7 @@ use coarnotify\core\notify\NotifyPattern;
 
 /**
  * Pattern to represent the Announce Service Result notification
- * https://coar-notify.net/specification/1.0.0/announce-resource/
+ * https://coar-notify.net/specification/1.0.1/announce-resource/
  */
 class AnnounceServiceResult extends NotifyPattern
 {

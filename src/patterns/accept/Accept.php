@@ -10,7 +10,7 @@ use coarnotify\core\activitystreams2\ActivityStreamsTypes;
 
 /**
  * Class to represent an Accept notification
- * https://coar-notify.net/specification/1.0.0/accept/
+ * https://coar-notify.net/specification/1.0.1/accept/
  */
 class Accept extends NotifyPattern
 {

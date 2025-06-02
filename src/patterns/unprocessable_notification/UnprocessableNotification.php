@@ -11,7 +11,7 @@ use coarnotify\exceptions\ValidationError;
 
 /**
  * Pattern to represent the Unprocessable Notification notification
- * https://coar-notify.net/specification/1.0.0/unprocessable/
+ * https://coar-notify.net/specification/1.0.1/unprocessable/
  */
 class UnprocessableNotification extends NotifyPattern
 {

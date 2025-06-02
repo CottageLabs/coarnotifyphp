@@ -11,7 +11,7 @@ use coarnotify\exceptions\ValidationError;
 
 /**
  * Pattern to represent a Tentative Accept notification
- * https://coar-notify.net/specification/1.0.0/tentative-accept/
+ * https://coar-notify.net/specification/1.0.1/tentative-accept/
  */
 class TentativelyAccept extends NotifyPattern
 {

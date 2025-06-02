@@ -10,7 +10,7 @@ use coarnotify\core\notify\NotifyTypes;
 
 /**
  * Pattern to represent a Request Endorsement notification
- * https://coar-notify.net/specification/1.0.0/request-endorsement/
+ * https://coar-notify.net/specification/1.0.1/request-endorsement/
  */
 class RequestEndorsement extends NotifyPattern
 {

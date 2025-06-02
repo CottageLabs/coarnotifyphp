@@ -11,7 +11,7 @@ use coarnotify\exceptions\ValidationError;
 
 /**
  * Pattern to represent the Undo Offer notification
- * https://coar-notify.net/specification/1.0.0/undo-offer/
+ * https://coar-notify.net/specification/1.0.1/undo-offer/
  */
 class UndoOffer extends NotifyPattern
 {

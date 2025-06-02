@@ -10,7 +10,7 @@ use coarnotify\core\notify\NotifyTypes;
 
 /**
  * Pattern to represent an Announce Relationship notification
- * https://coar-notify.net/specification/1.0.0/announce-relationship/
+ * https://coar-notify.net/specification/1.0.1/announce-relationship/
  */
 class AnnounceRelationship extends NotifyPattern
 {

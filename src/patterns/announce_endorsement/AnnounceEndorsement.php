@@ -10,7 +10,7 @@ use coarnotify\core\notify\NotifyTypes;
 
 /**
  * Class to represet an Announce Endorsement notification
- * https://coar-notify.net/specification/1.0.0/announce-endorsement/
+ * https://coar-notify.net/specification/1.0.1/announce-endorsement/
  */
 class AnnounceEndorsement extends NotifyPattern
 {

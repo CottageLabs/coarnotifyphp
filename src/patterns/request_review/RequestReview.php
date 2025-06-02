@@ -10,7 +10,7 @@ use coarnotify\exceptions\ValidationError;
 
 /**
  * Pattern to represent a Request Review notification
- * https://coar-notify.net/specification/1.0.0/request-review/
+ * https://coar-notify.net/specification/1.0.1/request-review/
  */
 class RequestReview extends NotifyPattern
 {
