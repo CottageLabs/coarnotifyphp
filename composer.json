@@ -1,6 +1,6 @@
 {
 	"name": "cottagelabs/coarnotify",
-	"description": "A COAR Notification manager that can send and receive COAR Notifications.",
+	"description": "A library which provides full support for the COAR Notify protocol, including a full set of pattern objects, a client to send notifications, and a server-side interface to enable rapid inbox implementation in arbitrary web frameworks.",
 	"type": "library",
 	"version": "1.0.1.1",
 	"authors": [
