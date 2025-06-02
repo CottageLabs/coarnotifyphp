@@ -68,21 +68,38 @@ class NotifyBase
         }
     }
 
+    /**
+     * Are properties being validated on set?
+     * @return bool
+     */
     public function getValidateProperties(): bool
     {
         return $this->validateProperties;
     }
 
+    /**
+     * Is the stream validated on construction?
+     * @return bool
+     */
     public function getValidateStreamOnConstruct(): bool
     {
         return $this->validateStreamOnConstruct;
     }
 
+    /**
+     * The validator object for this instance
+     * @return Validator
+     */
     public function getValidators(): Validator
     {
         return $this->validators;
     }
 
+    /**
+     * The underlying activity stream document for this Notify object.
+     *
+     * @return array|\coarnotify\core\activitystreams2\ActivityStream
+     */
     public function getDoc()
     {
         return $this->stream->getDoc();
@@ -108,20 +125,33 @@ class NotifyBase
         $this->setProperty(Properties::TYPE, $types);
     }
 
+    /**
+     * Generic property getter.  It is strongly recommended that all accessors proxy for this function
+     * as this mediates directly with the underlying
+     * activity stream object.
+     *
+     * @param $prop_name
+     * @return mixed|null
+     */
     public function getProperty($prop_name)
     {
-
         return $this->stream->getProperty($prop_name);
     }
 
+    /**
+     * Generic property setter.  It is strongly recommended that all accessors proxy for this function
+     * as this mediates directly with the underlying
+     * activity stream object.
+     *
+     * @param $prop_name
+     * @param $value
+     * @return void
+     * @throws ValueError
+     */
     public function setProperty($prop_name, $value)
     {
         $this->validateProperty($prop_name, $value);
         $this->stream->setProperty($prop_name, $value);
-    }
-
-    private function isPrimitive($value) {
-        return is_bool($value) || is_int($value) || is_float($value) || is_string($value) || is_null($value);
     }
 
     protected static function deepCopy($array)
@@ -129,6 +159,14 @@ class NotifyBase
         return json_decode(json_encode($array), true);
     }
 
+    /**
+     * Validate the object.  This provides the basic validation on ``id`` and ``type``.
+     * Subclasses should override this method with their own validation, and call this method via ``super`` first to ensure
+     * the basic properties are validated.
+     *
+     * @return bool
+     * @throws ValidationError
+     */
     public function validate(): bool
     {
         $ve = new ValidationError();
@@ -142,6 +180,21 @@ class NotifyBase
         return true;
     }
 
+    /**
+     * Validate a single property.  This is used internally by ``setProperty``
+     *
+     * If the object has ``validate_properties`` set to ``false`` then that behaviour may be overridden by setting ``force_validate`` to ``true``
+     *
+     * The validator applied to the property will be determined according to the ``validators`` property of the object
+     * and the ``validation_context`` of the object.
+     *
+     * @param $prop_name
+     * @param $value
+     * @param $force_validate
+     * @param $raise_error
+     * @return array
+     * @throws ValueError
+     */
     public function validateProperty($prop_name, $value, $force_validate = false, $raise_error = true)
     {
         if ($value === null) {
@@ -164,6 +217,15 @@ class NotifyBase
         return [true, ""];
     }
 
+    /**
+     * Force validate the property and if an error is found, add it to the validation error
+     *
+     * @param ValidationError $ve
+     * @param $prop_name
+     * @param $value
+     * @return void
+     * @throws ValueError
+     */
     protected function _registerPropertyValidationError(ValidationError $ve, $prop_name, $value)
     {
         list($e, $msg) = $this->validateProperty($prop_name, $value, true, false);
@@ -173,6 +235,14 @@ class NotifyBase
         }
     }
 
+    /**
+     * Add a required error to the validation error if the value is null
+     *
+     * @param ValidationError $ve
+     * @param $prop_name
+     * @param $value
+     * @return void
+     */
     protected function required(ValidationError $ve, $prop_name, $value)
     {
         if ($value === null) {
@@ -182,6 +252,17 @@ class NotifyBase
         }
     }
 
+    /**
+     * Add a required error to the validation error if the value is null, and then validate the value if not.
+     *
+     * Any error messages are added to the ``ValidationError`` object
+     *
+     * @param ValidationError $ve
+     * @param $prop_name
+     * @param $value
+     * @return void
+     * @throws ValueError
+     */
     protected function requiredAndValidate(ValidationError $ve, $prop_name, $value)
     {
         $pn = Properties::canonicalName($prop_name);
@@ -201,6 +282,15 @@ class NotifyBase
         }
     }
 
+    /**
+     * Validate the value if it is not null, but do not raise a validation error if it is null
+     *
+     * @param ValidationError $ve
+     * @param $prop_name
+     * @param $value
+     * @return void
+     * @throws ValueError
+     */
     protected function optionalAndValidate(ValidationError $ve, $prop_name, $value)
     {
         if ($value !== null) {

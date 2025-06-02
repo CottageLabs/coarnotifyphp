@@ -14,7 +14,7 @@ namespace coarnotify\core\activitystreams2;
 /**
  * A simple wrapper around an ActivityStreams dictionary object
  *
- * Construct it with a python dictionary that represents an ActivityStreams object, or
+ * Construct it with an array that represents an ActivityStreams object, or
  * without to create a fresh, blank object.
  */
 class ActivityStream
@@ -25,7 +25,7 @@ class ActivityStream
 
     /**
      * Construct a new ActivityStream object
-     * @param $raw  the raw ActivityStreams object, as a dictionary
+     * @param $raw  the raw ActivityStreams object, as an array
      */
     public function __construct($raw = null)
     {
@@ -81,11 +81,11 @@ class ActivityStream
      * Set an arbitrary property on the object.  The property name can be one of:
      *
      * * A simple string with the property name
-     * * A tuple of the property name and the full namespace ``("name", "http://example.com/ns")``
-     * * A tuple containing the property name and another tuple of the short name and the full namespace ``("name", ("as", "http://example.com/ns"))``
+     * * An array of a property id, propertyname name and the full namespace ``["example_name", "name", "http://example.com/ns"]``
+     * * An array containing the property id, property name and another tuple of the short name and the full namespace ``["example_name", "name", ["as", "http://example.com/ns"]]``
      *
-     * @param property: the property name
-     * @param value: the value to set
+     * @param $property:   the property name or tuple
+     * @param $value:      the value to set for the property
      **/
     public function setProperty($property, $value)
     {
@@ -107,11 +107,11 @@ class ActivityStream
      * Get an arbitrary property on the object.  The property name can be one of:
      *
      * * A simple string with the property name
-     * * A tuple of the property name and the full namespace ``("name", "http://example.com/ns")``
-     * * A tuple containing the property name and another tuple of the short name and the full namespace ``("name", ("as", "http://example.com/ns"))``
+     * * An array of a property id, propertyname name and the full namespace ``["example_name", "name", "http://example.com/ns"]``
+     * * An array containing the property id, property name and another tuple of the short name and the full namespace ``["example_name", "name", ["as", "http://example.com/ns"]]``
      *
-     * @param property:   the property name
-     * @return: the value of the property, or None if it does not exist
+     * @param $property:   the property name
+     * @return: the value of the property, or null if it does not exist
      **/
     public function getProperty($property)
     {

@@ -4,6 +4,9 @@ namespace coarnotify\core\notify;
 
 use coarnotify\core\activitystreams2\Properties;
 
+/**
+ * Trait to provide an API for setting and getting the ``summary`` property of a pattern
+ */
 trait SummaryTrait
 {
     /**

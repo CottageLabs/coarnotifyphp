@@ -20,6 +20,10 @@ const URIC = RESERVED . UNRESERVED . "%";
 const FREE = "#^[" . URIC . "]+$#";
 const USERINFO = "/^[" . UNRESERVED . "%;:&=+$,]*$/";
 
+/**
+ * Class to wrap a library of validators.  Provided this way as a convenient way to
+ * pass functions by reference to the validation configuration
+ */
 class Validators
 {
     private static function getMatch($m, $index)

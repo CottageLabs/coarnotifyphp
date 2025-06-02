@@ -5,9 +5,11 @@ namespace coarnotify\core\notify;
 use coarnotify\core\activitystreams2\ActivityStreamsTypes;
 use coarnotify\core\activitystreams2\Properties;
 use const coarnotify\core\activitystreams2\ACTIVITY_STREAMS_OBJECTS;
-use coarnotify\core\notify\NotifyProperties;
 use coarnotify\validate\Validators;
 
+/**
+ * ValidationRules class provides a set of default validation rules for the COAR Notify pattern.
+ */
 class ValidationRules
 {
     public static function defaultValidationRules(): array

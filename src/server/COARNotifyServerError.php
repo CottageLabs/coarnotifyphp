@@ -4,6 +4,13 @@ namespace coarnotify\exceptions;
 
 use Exception;
 
+/**
+ * An exception class for server errors in the COAR Notify server implementation.
+ *
+ * The web layer of your server implementation should be able to intercept this from the
+ * `COARNotifyServer->receive` method and return the appropriate HTTP status code and message to the
+ * user in its standard way.
+ */
 class COARNotifyServerError extends Exception
 {
     /**

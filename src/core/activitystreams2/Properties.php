@@ -49,6 +49,12 @@ class Properties
     /** ``as:relationship`` property */
     const RELATIONSHIP_TRIPLE = ["as_relationship_triple", "as:relationship", ACTIVITY_STREAMS_CONTEXT];
 
+    /**
+     * Returns the canonical name of a property.
+     *
+     * @param array|string $property The property tuple or string.
+     * @return string The canonical name of the property.
+     */
     public static function canonicalName($property)
     {
         if (!is_array($property)) {

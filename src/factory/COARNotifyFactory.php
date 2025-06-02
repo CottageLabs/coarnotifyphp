@@ -19,6 +19,9 @@ use coarnotify\patterns\undo_offer\UndoOffer;
 use coarnotify\patterns\unprocessable_notification\UnprocessableNotification;
 use coarnotify\exceptions\NotifyException;
 
+/**
+ * Factory for producing the correct model based on the type or data within a payload
+ */
 class COARNotifyFactory
 {
     /**
@@ -41,6 +44,14 @@ class COARNotifyFactory
 
     /**
      * Get the model class based on the supplied types. The returned callable is the class, not an instance.
+     *
+     * This is achieved by inspecting all of the known types in ``MODELS``, and performing the following
+     * calculation:
+     *
+     * 1. If the supplied types are a subset of the model types, then this is a candidate, keep a reference to it
+     * 2. If the candidate fit is exact (supplied types and model types are the same), return the class
+     * 3. If the class is a better fit than the last candidate, update the candidate.  If the fit is exact, return the class
+     * 4. Once we have run out of models to check, return the best candidate (or None if none found)
      *
      * @param string|array $incomingTypes A single type or list of types. If a list is provided, ALL types must match a candidate
      * @return A class representing the best fit for the supplied types, or null if no match
@@ -76,6 +87,11 @@ class COARNotifyFactory
 
     /**
      * Get an instance of a model based on the data provided.
+     *
+     * Internally this calls ``getByTypes`` to determine the class to instantiate, and then creates an instance of that
+     * Using the supplied args and kwargs.
+     *
+     * If a model cannot be found that matches the data, a NotifyException is raised.
      *
      * @param array $data The raw stream data to parse and instantiate around
      * @param mixed ...$args Any args to pass to the object constructor

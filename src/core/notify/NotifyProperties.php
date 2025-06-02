@@ -7,7 +7,9 @@ const NOTIFY_NAMESPACE = "https://coar-notify.net";
 /**
  * COAR Notify properties used in COAR Notify Patterns
  *
- * Most of these are provided as arrays, where the first element is the property name, and the second element is the namespace.
+ * Most of these are provided as 3 entry arrays, where the first element is an arbitrary id for the property,
+ * the second element is the bare name, and the third element is the namespace.
+ *
  * Some are provided as plain strings without namespaces.
  *
  * These are suitable to be used as property names in all the property getters/setters in the notify pattern objects

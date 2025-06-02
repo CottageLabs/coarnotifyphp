@@ -5,6 +5,12 @@ namespace coarnotify\core\notify;
 use coarnotify\core\activitystreams2\Properties;
 use coarnotify\exceptions\ValidationError;
 
+/**
+ * Deafult class to represent an object in the COAR Notify pattern.  Objects can be used for ``object`` or ``context`` properties
+ * in notify patterns
+ *
+ * Specific patterns may need to extend this class to provide their specific behaviours and validation
+ */
 class NotifyObject extends NotifyPatternPart
 {
     public function getCiteAs(): string
@@ -47,6 +53,14 @@ class NotifyObject extends NotifyPatternPart
         $this->setProperty(Properties::SUBJECT_TRIPLE, $subj);
     }
 
+    /**
+     * Validate the object.  This overrides the base validation, as objects only absolutely require an ``id`` property,
+     * so the base requirement for a ``type`` is relaxed.
+     *
+     * @return bool
+     * @throws ValidationError
+     * @throws \coarnotify\exceptions\ValueError
+     */
     public function validate(): bool
     {
         $ve = new ValidationError();

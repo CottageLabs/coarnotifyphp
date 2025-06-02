@@ -2,6 +2,11 @@
 
 namespace coarnotify\http;
 
+/**
+ * Interface for the HTTP layer
+ *
+ * This defines the methods which need to be implemented in order for the client to fully operate
+ */
 interface HttpLayer
 {
     /**

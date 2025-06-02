@@ -8,10 +8,19 @@ use coarnotify\exceptions\ValidationError;
 use coarnotify\core\notify\NotifyPattern;
 use coarnotify\core\notify\NotifyTypes;
 
+/**
+ * Class to represet an Announce Endorsement notification
+ * https://coar-notify.net/specification/1.0.0/announce-endorsement/
+ */
 class AnnounceEndorsement extends NotifyPattern
 {
     const TYPE = [ActivityStreamsTypes::ANNOUNCE, NotifyTypes::ENDORSEMENT_ACTION];
 
+    /**
+     * Get a context specific to AnnounceEndorsement
+     *
+     * @return AnnounceEndorsementContext|null
+     */
     public function getContext(): ?AnnounceEndorsementContext
     {
         $c = $this->getProperty(Properties::CONTEXT);
@@ -27,6 +36,13 @@ class AnnounceEndorsement extends NotifyPattern
         return null;
     }
 
+    /**
+     * Extends the base validation to make `context` required
+     *
+     * @return bool
+     * @throws ValidationError
+     * @throws \coarnotify\exceptions\ValueError
+     */
     public function validate(): bool
     {
         $ve = new ValidationError();

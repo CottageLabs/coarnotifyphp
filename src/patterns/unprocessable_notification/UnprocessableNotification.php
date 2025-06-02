@@ -9,12 +9,27 @@ use coarnotify\core\activitystreams2\ActivityStreamsTypes;
 use coarnotify\core\activitystreams2\Properties;
 use coarnotify\exceptions\ValidationError;
 
+/**
+ * Pattern to represent the Unprocessable Notification notification
+ * https://coar-notify.net/specification/1.0.0/unprocessable/
+ */
 class UnprocessableNotification extends NotifyPattern
 {
     use SummaryTrait;
 
+    /** @var array Unprocessable Notification types, including an ActivityStreams Flag and a COAR Notify Unprocessable Notification */
     const TYPE = [ActivityStreamsTypes::FLAG, NotifyTypes::UNPROCESSABLE_NOTIFICATION];
 
+    /**
+     * In addition to the base validation apply the following constraints:
+     *
+     * * The ``inReplyTo`` property is required
+     * * The ``summary`` property is required
+     *
+     * @return bool
+     * @throws ValidationError
+     * @throws \coarnotify\exceptions\ValueError
+     */
     public function validate(): bool
     {
         $ve = new ValidationError();

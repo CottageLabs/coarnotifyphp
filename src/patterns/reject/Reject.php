@@ -9,12 +9,27 @@ use coarnotify\core\activitystreams2\ActivityStreamsTypes;
 use coarnotify\core\activitystreams2\Properties;
 use coarnotify\exceptions\ValidationError;
 
+/**
+ * Pattern to represent a Reject notification
+ * https://coar-notify.net/specification/1.0.0/reject/
+ */
 class Reject extends NotifyPattern
 {
     use NestedPatternObjectTrait, SummaryTrait;
 
+    /** @var string Reject type, the ActivityStreams Reject type */
     const TYPE = ActivityStreamsTypes::REJECT;
 
+    /**
+     * In addition to the base validation apply the following constraints:
+     *
+     * * The ``inReplyTo`` property is required
+     * * The ``inReplyTo`` value must match the ``object.id`` value
+     *
+     * @return bool
+     * @throws ValidationError
+     * @throws \coarnotify\exceptions\ValueError
+     */
     public function validate(): bool
     {
         $ve = new ValidationError();

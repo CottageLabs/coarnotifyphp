@@ -1,10 +1,12 @@
 <?php
-
-
+/**
+ * This trait provides methods to handle nested pattern objects in COAR Notify patterns.
+ * It allows retrieval and setting of the object property, ensuring it is correctly typed.
+ *
+ * @package coarnotify\core\notify
+ */
 namespace coarnotify\core\notify;
 
-use coarnotify\core\notify\NotifyObject;
-use coarnotify\core\notify\NotifyPattern;
 use coarnotify\core\activitystreams2\Properties;
 use coarnotify\factory\COARNotifyFactory;
 

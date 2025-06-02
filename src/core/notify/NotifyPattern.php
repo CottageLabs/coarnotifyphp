@@ -6,10 +6,22 @@ use coarnotify\core\activitystreams2\ActivityStreamsTypes;
 use coarnotify\core\activitystreams2\Properties;
 use coarnotify\exceptions\ValidationError;
 
+/**
+ * Base class for all notification patterns
+ */
 class NotifyPattern extends NotifyBase
 {
     const TYPE = ActivityStreamsTypes::OBJECT;
 
+    /**
+     * Constructor for the NotifyPattern class.
+     *
+     * @param $stream
+     * @param $validate_stream_on_construct
+     * @param $validate_properties
+     * @param $validators
+     * @param $validation_context
+     */
     public function __construct($stream = null,
                                 $validate_stream_on_construct = true,
                                 $validate_properties = true,
@@ -124,6 +136,18 @@ class NotifyPattern extends NotifyBase
         $this->setProperty(Properties::CONTEXT, $value->getDoc());
     }
 
+    /**
+     * Base validator for all notification patterns.  This extends the validate function on the superclass.
+     *
+     * In addition to the base class's constraints, this applies the following validation:
+     *
+     *  The ``origin``, ``target`` and ``object`` properties are required and must be valid
+     *  The ``actor`` ``inReplyTo`` and ``context`` properties are optional, but if present must be valid
+     *
+     * @return bool
+     * @throws ValidationError
+     * @throws \coarnotify\exceptions\ValueError
+     */
     public function validate(): bool
     {
         $ve = new ValidationError();

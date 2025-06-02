@@ -6,8 +6,20 @@ use coarnotify\core\activitystreams2\Properties;
 use coarnotify\exceptions\ValidationError;
 use coarnotify\core\notify\NotifyObject;
 
+/**
+ * Custom object class for Announce Relationship to apply the custom validation
+ */
 class AnnounceRelationshipObject extends NotifyObject
 {
+    /**
+     * Extend the base validation to include the following constraints:
+     *
+     * * The object triple is required and each part must validate
+     *
+     * @return bool
+     * @throws ValidationError
+     * @throws \coarnotify\exceptions\ValueError
+     */
     public function validate(): bool
     {
         $ve = new ValidationError();

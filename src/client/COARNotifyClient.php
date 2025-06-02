@@ -6,7 +6,6 @@ use coarnotify\core\notify\NotifyPattern;
 use coarnotify\http\HttpLayer;
 use coarnotify\http\CurlHttpLayer;
 use coarnotify\exceptions\NotifyException;
-use coarnotify\client\NotifyResponse;
 
 class COARNotifyClient
 {

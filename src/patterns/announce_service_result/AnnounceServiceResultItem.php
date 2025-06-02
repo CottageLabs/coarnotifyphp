@@ -7,8 +7,21 @@ use coarnotify\exceptions\ValidationError;
 use coarnotify\core\notify\NotifyItem;
 use coarnotify\core\notify\NotifyProperties;
 
+/**
+ * Custom item class for Announce Service Result to apply the custom validation
+ */
 class AnnounceServiceResultItem extends NotifyItem
 {
+    /**
+     * Beyond the base validation, apply the following:
+     *
+     * * Make type required and avlid
+     * * Make the ``mediaType`` required
+     *
+     * @return bool
+     * @throws ValidationError
+     * @throws \coarnotify\exceptions\ValueError
+     */
     public function validate(): bool
     {
         $ve = new ValidationError();

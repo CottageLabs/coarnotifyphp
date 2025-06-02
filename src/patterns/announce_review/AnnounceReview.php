@@ -8,10 +8,20 @@ use coarnotify\exceptions\ValidationError;
 use coarnotify\core\notify\NotifyPattern;
 use coarnotify\core\notify\NotifyTypes;
 
+/**
+ * Pattern to represent the Announce Review notification
+ * https://coar-notify.net/specification/1.0.0/announce-review/
+ */
 class AnnounceReview extends NotifyPattern
 {
+    /** @var array Announce Review type, including Acitivity Streams Announce and Notify Review Action */
     const TYPE = [ActivityStreamsTypes::ANNOUNCE, NotifyTypes::REVIEW_ACTION];
 
+    /**
+     * Custom getter to retrieve Announce Review object
+     *
+     * @return AnnounceReviewObject|null
+     */
     public function getObject(): ?AnnounceReviewObject
     {
         $o = $this->getProperty(Properties::OBJECT);
@@ -27,6 +37,11 @@ class AnnounceReview extends NotifyPattern
         return null;
     }
 
+    /**
+     * Custom getter to retrieve AnnounceReview Context
+     *
+     * @return AnnounceReviewContext|null
+     */
     public function getContext(): ?AnnounceReviewContext
     {
         $c = $this->getProperty(Properties::CONTEXT);
@@ -42,6 +57,13 @@ class AnnounceReview extends NotifyPattern
         return null;
     }
 
+    /**
+     * Extends the base validation to make `context` required
+     *
+     * @return bool
+     * @throws ValidationError
+     * @throws \coarnotify\exceptions\ValueError
+     */
     public function validate(): bool
     {
         $ve = new ValidationError();

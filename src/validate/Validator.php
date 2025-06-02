@@ -37,12 +37,12 @@ const REQUIRED_MESSAGE = "`{x}` is a required field";
  * ```
  * {
  *  Properties.TYPE: {
- *      "default": validate.typeChecker,
+ *      "default": Validators::typeChecker,
  *      "context": {
  *          Properties.ACTOR: {
- *              "default": validate.one_of([
- *                  ActivityStreamsTypes.SERVICE,
- *                  ActivityStreamsTypes.APPLICATION
+ *              "default": Validators::oneOf([
+ *                  ActivityStreamsTypes::SERVICE,
+ *                  ActivityStreamsTypes::APPLICATION
  *              ])
  *          }
  *      }
@@ -50,7 +50,7 @@ const REQUIRED_MESSAGE = "`{x}` is a required field";
  * }
  * ```
  *
- * This tells us that the ``TYPE`` property should be validated with ``validate.typeChecker`` by default.  But if
+ * This tells us that the ``TYPE`` property should be validated with ``typeChecker`` by default.  But if
  * we are looking at that ``TYPE`` property inside an ``ACTOR`` object, then instead we should use ``validate.one_of``.
  *
  * When the `get` method is called, the ``context`` parameter can be used to specify the context in which the

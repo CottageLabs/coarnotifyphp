@@ -5,8 +5,22 @@ namespace coarnotify\http;
 use coarnotify\http\HttpLayer;
 use coarnotify\http\CurlHttpResponse;
 
+/**
+ * Implementation of the HTTP layer using the CURL library.  This is the default implementation used
+ * when no other implementation is supplied
+ */
 class CurlHttpLayer implements HttpLayer
 {
+    /**
+     * Make an HTTP POST request to the supplied URL with the given body data, and headers
+     *
+     * @param string $url
+     * @param string $data
+     * @param array|null $headers
+     * @param ...$args
+     * @return \coarnotify\http\CurlHttpResponse
+     * @throws \Exception
+     */
     public function post(string $url, string $data, ?array $headers = [], ...$args): CurlHttpResponse
     {
         $ch = curl_init($url);
@@ -35,6 +49,15 @@ class CurlHttpLayer implements HttpLayer
         return new CurlHttpResponse($httpStatusCode, $headers);
     }
 
+    /**
+     * Make an HTTP GET request to the supplied URL with the given headers
+     *
+     * @param string $url
+     * @param array|null $headers
+     * @param ...$args
+     * @return \coarnotify\http\CurlHttpResponse
+     * @throws \Exception
+     */
     public function get(string $url, ?array $headers = [], ...$args): CurlHttpResponse
     {
         $ch = curl_init($url);

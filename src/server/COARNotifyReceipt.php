@@ -2,6 +2,12 @@
 
 namespace coarnotify\server;
 
+/**
+ * An object representing the response from a COAR Notify server.
+ *
+ * Server implementations should construct and return this object with the appropriate properties
+ * when implementing the :py:meth:`COARNotifyServiceBinding.notification_received` binding
+ */
 class COARNotifyReceipt
 {
     /**

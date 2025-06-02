@@ -6,6 +6,25 @@ use coarnotify\factory\COARNotifyFactory;
 use coarnotify\exceptions\COARNotifyServerError;
 use coarnotify\core\notify\NotifyPattern;
 
+/**
+ * The main entrypoint to the COAR Notify server implementation.
+ *
+ * The web layer of your application should pass the json/raw payload of any incoming notification to the
+ * `receive` method, which will parse the payload and pass it to the `COARNotifyServiceBinding.notificationReceived`
+ * method of your service implementation
+ *
+ * This object should be constructed with your service implementation passed to it, for example
+ *
+ * ```php
+ * $server = COARNotifyServer(MyServiceBinding())
+ * try {
+ *      $response = server->receive(the_request_json)
+ *      return make_my_http_response($response);
+ * } catch (COARNotifyServerError $e) {
+ *      return my_http_error($e);
+ * }
+ *
+ */
 class COARNotifyServer
 {
     /**

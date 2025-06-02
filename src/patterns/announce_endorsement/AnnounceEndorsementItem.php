@@ -7,8 +7,22 @@ use coarnotify\exceptions\ValidationError;
 use coarnotify\core\notify\NotifyItem;
 use coarnotify\core\notify\NotifyProperties;
 
+/**
+ * Announce Endorsement Item, which extends the base NotifyItem to provide
+ * additional validation
+ */
 class AnnounceEndorsementItem extends NotifyItem
 {
+    /**
+     * Extends the base validation with validation custom to Announce Endorsement notifications
+     *
+     * * Adds type validation, which the base NotifyItem does not apply
+     * * Requires the ``mediaType`` value
+     *
+     * @return bool
+     * @throws ValidationError
+     * @throws \coarnotify\exceptions\ValueError
+     */
     public function validate(): bool
     {
         $ve = new ValidationError();

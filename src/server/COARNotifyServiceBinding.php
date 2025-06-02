@@ -4,6 +4,14 @@ namespace coarnotify\server;
 
 use coarnotify\core\notify\NotifyPattern;
 
+/**
+ * Interface for implementing a COAR Notify server binding.
+ *
+ * Server implementation should extend this class and implement the `notificationReceived` method
+ *
+ * That method will receive a `NotifyPattern` object, which will be one of the known types
+ * and should return a `COARNotifyReceipt` object with the appropriate status code and location URL
+ */
 interface COARNotifyServiceBinding
 {
     /**

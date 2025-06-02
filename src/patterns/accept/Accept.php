@@ -8,6 +8,10 @@ use coarnotify\exceptions\ValidationError;
 use coarnotify\core\activitystreams2\Properties;
 use coarnotify\core\activitystreams2\ActivityStreamsTypes;
 
+/**
+ * Class to represent an Accept notification
+ * https://coar-notify.net/specification/1.0.0/accept/
+ */
 class Accept extends NotifyPattern
 {
     use NestedPatternObjectTrait;

@@ -7,6 +7,65 @@ namespace coarnotify\exceptions;
  *
  * This class is designed to be thrown and caught and to collect validation errors
  * as it passes through the validation pipeline.
+ *
+ * For example an object validator may do something like this:
+ *
+ * ```php
+ *
+ * public function validate() {
+ *      $ve = new ValidationError();
+ *      $ve->addError('property_name', 'error message');
+ *      if ($ve->hasErrors()) {
+ *          throw $ve;
+ *      }
+ *     return true;
+ * }
+ * ```
+ *
+ * If this is called by a subclass which is also validating, then this may be used
+ * like this:
+ *
+ * ```php
+ *  public function validate() {
+ *       $ve = new ValidationError();
+ *
+ *       try {
+ *          parent::validate();
+ *       } catch (ValidationError $superve) {
+ *          $ve = $superve;
+ *       }
+ *
+ *       $ve->addError('property_name', 'error message');
+ *       if ($ve->hasErrors()) {
+ *           throw $ve;
+ *       }
+ *      return true;
+ *  }
+ *  ```
+ *
+ * By the time the ValidationError is finally raised to the top, it will contain
+ * all the validation errors from the various levels of validation that have been
+ * performed.
+ *
+ * The errors are stored as a multi-level dictionary with the keys at the top level
+ * being the fields in the data structure which have errors, and within the value
+ * for each key there are two possible keys:
+ *
+ * * errors: a list of error messages for this field
+ * * nested: an array of further errors for nested fields
+ *
+ * ```php
+ *
+ * [
+ *      "key1" => [
+ *          "errors" => ["error1", "error2"],
+ *          "nested: => [
+ *              "key2" => [
+ *                  errors: ["error3"]
+ *              ]
+ *          ]
+ *      ]
+ * ]
  */
 class ValidationError extends NotifyException
 {

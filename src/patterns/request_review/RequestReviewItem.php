@@ -7,8 +7,21 @@ use coarnotify\core\notify\NotifyItem;
 use coarnotify\core\notify\NotifyProperties;
 use coarnotify\exceptions\ValidationError;
 
+/**
+ * Custom Request Review Item class to provide the custom validation
+ */
 class RequestReviewItem extends NotifyItem
 {
+    /**
+     * Extend the base validation to include the following constraints:
+     *
+     * * The type property is required and must validate
+     * * the ``mediaType`` property is required
+     *
+     * @return bool
+     * @throws ValidationError
+     * @throws \coarnotify\exceptions\ValueError
+     */
     public function validate(): bool
     {
         $ve = new ValidationError();

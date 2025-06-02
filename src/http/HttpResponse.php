@@ -2,6 +2,11 @@
 
 namespace coarnotify\http;
 
+/**
+ * Interface for HTTP response object
+ *
+ * This defines the methods which need to be implemented in order for the client to fully operate
+ */
 interface HttpResponse
 {
     /**
