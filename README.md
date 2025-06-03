@@ -21,4 +21,4 @@ In addition, it provides:
 * A customisable HTTP layer to allow you to use your own, or to build in custom authentication routines
 * Detailed API documentation
 
-Full documentation here: https://cottagelabs.github.io/coarnotifyphp/build/html/index.html
+Full documentation here: https://coar-notify.github.io/coarnotifyphp/build/html/index.html
